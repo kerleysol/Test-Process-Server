@@ -16,17 +16,17 @@ app.use(bodyParser.json())
 gitHubService = new GitHubService();
 temp = 1;
 
-// setInterval(function(){
-// 	console.log("["+temp+"]Requesting...")
-// 	temp++;
-// 	gitHubService.getOpenPullRequestsDashboard(function(result){
-// 		PullRequest.addBulkPullRequests("Dashboard", JSON.parse(result));
-// 	})
-// 	gitHubService.getOpenPullRequestsIonic(function(result){
-// 		PullRequest.addBulkPullRequests("Ionic", JSON.parse(result));
-// 	})
-// // }, 1000 * 10);
-// }, 1000 * 60);
+setInterval(function(){
+	console.log("["+temp+"]Requesting...")
+	temp++;
+	gitHubService.getOpenPullRequestsDashboard(function(result){
+		PullRequest.addBulkPullRequests("Dashboard", JSON.parse(result));
+	})
+	gitHubService.getOpenPullRequestsIonic(function(result){
+		PullRequest.addBulkPullRequests("Ionic", JSON.parse(result));
+	})
+// }, 1000 * 10);
+}, 1000 * 60);
 
 app.get('/', function (req, res) {
 	res.send("API Pull Requests - Kerley de Sousa Dantas");
@@ -82,6 +82,5 @@ app.put('/pullRequest/:id', function (req, res) {
 	res.json({status:200});
 })
 
-
-app.listen(3000);
-console.log("Running on port 3000...")
+app.listen(process.env.PORT || 5000)
+console.log("Running...")
