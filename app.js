@@ -10,6 +10,14 @@ GitHubService = require('./Services/github.service');
 // mongoose.connect('mongodb://localhost/pullRequests')
 mongoose.connect('mongodb://heroku_6k0pw1fc:v6ngfojvien2m6rj2i3bqthiu8@ds235785.mlab.com:35785/heroku_6k0pw1fc');
 app.use(bodyParser.json())
+// Add headers
+app.use(function (req, res, next) {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+	res.setHeader('Access-Control-Allow-Credentials', true);
+	next();
+});
 
 
 
@@ -82,5 +90,5 @@ app.put('/pullRequest/:id', function (req, res) {
 	res.json({status:200});
 })
 
-app.listen(process.env.PORT || 5000)
+app.listen(process.env.PORT || 3000)
 console.log("Running...")
