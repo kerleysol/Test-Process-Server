@@ -7,7 +7,8 @@ PullRequest = require('./Models/PullRequest')
 GitHubService = require('./Services/github.service');
 
 
-mongoose.connect('mongodb://localhost/pullRequests')
+// mongoose.connect('mongodb://localhost/pullRequests')
+mongoose.connect('mongodb://heroku_6k0pw1fc:v6ngfojvien2m6rj2i3bqthiu8@ds235785.mlab.com:35785/heroku_6k0pw1fc');
 app.use(bodyParser.json())
 
 
