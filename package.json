@@ -1,0 +1,17 @@
+{
+  "name": "APIPR",
+  "version": "0.0.0",
+  "description": "API Pull Requests",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies" : {
+  	"express" : "*",
+  	"body-parser" : "*",
+  	"mongoose" : "*",
+    "https" : "*"
+  },
+  "author": "Kerley Dantas",
+  "license": "BSD-2-Clause"
+}
